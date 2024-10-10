@@ -1,3 +1,8 @@
+# Memonitor
+Monitor memory usage of a single process;
+
+![](./screenshot.png)
+
 ## To run
 
 ```bash
