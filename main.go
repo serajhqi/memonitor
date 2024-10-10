@@ -140,15 +140,15 @@ func playLineChart(ctx context.Context, lc *linechart.LineChart, delay time.Dura
 		case <-ticker.C:
 			memRecs, _ := GetMemoryUsage(*pid)
 			var inputs []float64
-			var xItems map[int]string = make(map[int]string)
+			var xAxisItems map[int]string = make(map[int]string)
 			for i, v := range memRecs {
 				inputs = append(inputs, v.value)
-				xItems[i] = v.time
+				xAxisItems[i] = v.time
 			}
 
 			if err := lc.Series("first", inputs,
 				linechart.SeriesCellOpts(cell.FgColor(cell.ColorNumber(33))),
-				linechart.SeriesXLabels(xItems),
+				linechart.SeriesXLabels(xAxisItems),
 			); err != nil {
 				panic(err)
 			}
